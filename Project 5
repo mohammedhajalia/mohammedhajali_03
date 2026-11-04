@@ -1,0 +1,63 @@
+#include <stdio.h>
+
+void main()
+{
+    FILE *fp;
+    char name[300];
+
+   
+
+    // 1. Writing data into file
+    fp = fopen("Hajalifeedback.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("File cannot be opened");
+        
+        return;
+    }
+
+    fprintf(fp, "The C programming session was highly informative and well-structured. The concepts were explained clearly with practical examples, making it easy to understand core programming fundamentals. The hands-on exercises helped reinforce learning, and the instructor encouraged active participation throughout the session. Overall, it was an excellent learning experience.");
+
+    fclose(fp);
+
+    printf("Data written successfully\n");
+
+
+    // 2. Appending data into file
+    fp = fopen("Hajalifeedback.txt", "a");
+
+    if (fp == NULL)
+    {
+        printf("File cannot be opened");
+        
+        return;
+    }
+
+    fprintf(fp, "\nThe session was very useful and engaging. The trainer explained C programming concepts in a clear and understandable manner. The examples and practice exercises helped improve my coding skills and confidence.");
+
+    fclose(fp);
+
+    printf("Data appended successfully\n");
+
+
+    // 3. Reading data from file
+    fp = fopen("student.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("Hajalifeedback");
+       
+        return;
+    }
+
+    printf("\nFile Contents:\n");
+
+    while (fgets(name, sizeof(name), fp) != NULL)
+    {
+        printf("%s", name);
+    }
+
+    fclose(fp);
+
+}
